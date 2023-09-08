@@ -12,21 +12,46 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import {blueGrey, grey} from '@mui/material/colors';
-import {TextField} from "@mui/material";
-import {styled} from '@mui/system';
+import { blueGrey, grey } from '@mui/material/colors';
+import { TextField } from "@mui/material";
+import { styled } from '@mui/system';
+import { useRouter } from 'next/navigation';
 
-const pages = ['O aplikacji', 'Załóż profil obiektu', 'Zarejestruj się', 'Zaloguj się'];
+const pages = [
+    {
+        name: 'O aplikacji',
+        href: '/'
+    },
+    {
+        name: 'Załóż profil obiektu',
+        href: '/'
+    },
+    {
+        name: 'Zarejestruj się',
+        href: '/register'
+    },
+    {
+        name: 'Zaloguj się',
+        href: '/login'
+    }
+];
 const coloredPages = ['Zarejestruj się', 'Zaloguj się']
 
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function Navigation() {
+const Navigation = (props:
+    { simple: boolean }
+) => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const router = useRouter()
 
-    const isColored = (page) => {
+    const isColored = (page: string) => {
         return coloredPages.includes(page)
+    }
+
+    const clickItem = (index: number) => {
+        router.push(pages[index].href)
     }
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -68,7 +93,7 @@ function Navigation() {
     `;
 
     return (
-        <AppBar position="static" sx={{minHeight: 300}} elevation={0}>
+        <AppBar position="static" sx={{ minHeight: props.simple ? 0 : 300 }} elevation={0}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{
@@ -76,7 +101,7 @@ function Navigation() {
                             xs: 'none',
                             md: 'flex'
                         }, mr: 1
-                    }}/>
+                    }} />
 
                     <Typography
                         variant="h6"
@@ -85,7 +110,7 @@ function Navigation() {
                         href="/"
                         sx={{
                             mr: 2,
-                            display: {xs: 'none', md: 'flex'},
+                            display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -96,7 +121,7 @@ function Navigation() {
                         Signifer.pl
                     </Typography>
 
-                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -105,7 +130,7 @@ function Navigation() {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -122,12 +147,12 @@ function Navigation() {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: {xs: 'block', md: 'none'},
+                                display: { xs: 'block', md: 'none' },
                             }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">{page.name}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -138,7 +163,7 @@ function Navigation() {
                             xs: 'flex',
                             md: 'none'
                         }, mr: 1
-                    }}/>
+                    }} />
 
                     <Typography
                         variant="h5"
@@ -171,16 +196,16 @@ function Navigation() {
                         gap: 2,
                         justifyContent: 'flex-end'
                     }}>
-                        {pages.map((page) => (
+                        {pages.map((page, index) => (
                             <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                variant={isColored(page) ? 'contained' : 'text'}
+                                key={page.name}
+                                onClick={() => { handleCloseNavMenu(); clickItem(index) }}
+                                variant={isColored(page.name) ? 'contained' : 'text'}
                                 sx={{
                                     my: 2,
                                     color: 'white',
                                     display: 'block',
-                                    ...(isColored(page) && {
+                                    ...(isColored(page.name) && {
                                         backgroundColor: 'white',
                                         color: grey[900],
                                         '&:hover': {
@@ -189,41 +214,45 @@ function Navigation() {
                                     })
                                 }}
                             >
-                                {page}
+                                {page.name}
                             </Button>
                         ))}
                     </Box>
                 </Toolbar>
 
-                <Typography variant="h1" sx={{fontSize: 48, fontWeight: 'bold', mt: 16}}>
-                    Odnajdź miejsce na rozwój swojej pasji
-                </Typography>
+                {!props.simple &&
+                    <React.Fragment>
+                        <Typography variant="h1" sx={{ fontSize: 48, fontWeight: 'bold', mt: 16 }}>
+                            Odnajdź miejsce na rozwój swojej pasji
+                        </Typography>
 
-                <Typography variant="h3" sx={{fontSize: 24, mt: 4, mb: 4}}>
-                    Szukaj obiektów do zapisu internetowego.
-                </Typography>
+                        <Typography variant="h3" sx={{ fontSize: 24, mt: 4, mb: 4 }}>
+                            Szukaj obiektów do zapisu internetowego.
+                        </Typography>
 
-                <Box display="flex" sx={{
-                    boxShadow: 3,
-                    marginBottom: '-30px',
-                    border: '4px solid #1976d2',
-                    backgroundColor: '#1976d2',
-                    mt: 8,
-                    gap: '4px'
-                }}>
-                    <WhiteBorderTextField label="Miejscowość" sx={{flex: 1}}/>
+                        <Box display="flex" sx={{
+                            boxShadow: 3,
+                            marginBottom: '-30px',
+                            border: '4px solid #1976d2',
+                            backgroundColor: '#1976d2',
+                            mt: 8,
+                            gap: '4px'
+                        }}>
+                            <WhiteBorderTextField label="Miejscowość" sx={{ flex: 1 }} />
 
-                    <WhiteBorderTextField label="Nazwa obiektu" sx={{flex: 1}}/>
+                            <WhiteBorderTextField label="Nazwa obiektu" sx={{ flex: 1 }} />
 
-                    <Button variant="contained" sx={{
-                        minHeight: '56px',
-                        fontWeight: 'bold',
-                        boxShadow: 'none',
-                        borderRadius: 0
-                    }}>
-                        Szukaj
-                    </Button>
-                </Box>
+                            <Button variant="contained" sx={{
+                                minHeight: '56px',
+                                fontWeight: 'bold',
+                                boxShadow: 'none',
+                                borderRadius: 0
+                            }}>
+                                Szukaj
+                            </Button>
+                        </Box>
+                    </React.Fragment>
+                }
             </Container>
         </AppBar>
     );
