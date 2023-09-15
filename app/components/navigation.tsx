@@ -12,10 +12,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { blueGrey, grey } from '@mui/material/colors';
-import { TextField } from "@mui/material";
-import { styled } from '@mui/system';
-import { useRouter } from 'next/navigation';
+import {blueGrey, grey} from '@mui/material/colors';
+import {TextField} from "@mui/material";
+import {styled} from '@mui/system';
+import Link from "next/link";
 
 const pages = [
     {
@@ -24,34 +24,27 @@ const pages = [
     },
     {
         name: 'Załóż profil obiektu',
-        href: '/'
+        href: '/user/register/company'
     },
     {
         name: 'Zarejestruj się',
-        href: '/register'
+        href: '/user/register'
     },
     {
         name: 'Zaloguj się',
-        href: '/login'
+        href: '/user/login'
     }
 ];
 const coloredPages = ['Zarejestruj się', 'Zaloguj się']
 
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const Navigation = (props:
-    { simple: boolean }
-) => {
+function Navigation(props) {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-    const router = useRouter()
 
-    const isColored = (page: string) => {
+    const isColored = (page) => {
         return coloredPages.includes(page)
-    }
-
-    const clickItem = (index: number) => {
-        router.push(pages[index].href)
     }
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -93,7 +86,7 @@ const Navigation = (props:
     `;
 
     return (
-        <AppBar position="static" sx={{ minHeight: props.simple ? 0 : 300 }} elevation={0}>
+        <AppBar position="static" sx={{minHeight: props.simple ? 70 : 300}} elevation={0}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{
@@ -101,7 +94,7 @@ const Navigation = (props:
                             xs: 'none',
                             md: 'flex'
                         }, mr: 1
-                    }} />
+                    }}/>
 
                     <Typography
                         variant="h6"
@@ -110,7 +103,7 @@ const Navigation = (props:
                         href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: {xs: 'none', md: 'flex'},
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
@@ -121,7 +114,7 @@ const Navigation = (props:
                         Signifer.pl
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -130,7 +123,7 @@ const Navigation = (props:
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -147,7 +140,7 @@ const Navigation = (props:
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: {xs: 'block', md: 'none'},
                             }}
                         >
                             {pages.map((page) => (
@@ -163,7 +156,7 @@ const Navigation = (props:
                             xs: 'flex',
                             md: 'none'
                         }, mr: 1
-                    }} />
+                    }}/>
 
                     <Typography
                         variant="h5"
@@ -196,11 +189,13 @@ const Navigation = (props:
                         gap: 2,
                         justifyContent: 'flex-end'
                     }}>
-                        {pages.map((page, index) => (
+                        {pages.map((page) => (
                             <Button
                                 key={page.name}
-                                onClick={() => { handleCloseNavMenu(); clickItem(index) }}
+                                onClick={handleCloseNavMenu}
                                 variant={isColored(page.name) ? 'contained' : 'text'}
+                                href={page.href}
+                                LinkComponent={Link}
                                 sx={{
                                     my: 2,
                                     color: 'white',
@@ -222,11 +217,11 @@ const Navigation = (props:
 
                 {!props.simple &&
                     <React.Fragment>
-                        <Typography variant="h1" sx={{ fontSize: 48, fontWeight: 'bold', mt: 16 }}>
+                        <Typography variant="h1" sx={{fontSize: 48, fontWeight: 'bold', mt: 16}}>
                             Odnajdź miejsce na rozwój swojej pasji
                         </Typography>
 
-                        <Typography variant="h3" sx={{ fontSize: 24, mt: 4, mb: 4 }}>
+                        <Typography variant="h3" sx={{fontSize: 24, mt: 4, mb: 4}}>
                             Szukaj obiektów do zapisu internetowego.
                         </Typography>
 
@@ -238,9 +233,9 @@ const Navigation = (props:
                             mt: 8,
                             gap: '4px'
                         }}>
-                            <WhiteBorderTextField label="Miejscowość" sx={{ flex: 1 }} />
+                            <WhiteBorderTextField label="Miejscowość" sx={{flex: 1}}/>
 
-                            <WhiteBorderTextField label="Nazwa obiektu" sx={{ flex: 1 }} />
+                            <WhiteBorderTextField label="Nazwa obiektu" sx={{flex: 1}}/>
 
                             <Button variant="contained" sx={{
                                 minHeight: '56px',
