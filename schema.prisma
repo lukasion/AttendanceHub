@@ -1,0 +1,16 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:@localhost:3306/signifer"
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  email       String
+  password    String
+}
