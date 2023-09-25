@@ -1,8 +1,9 @@
-import {PrismaClient} from "@/generated/client";
+import { PrismaClient } from "@/generated/client";
+const bcrypt = require('bcryptjs');
 
 export default async function handler(req: any, res: any) {
     const email = req.body.email
-    const password = req.body.password
+    const password = req.body.password ? bcrypt.hashSync(req.body.password, 8) : null
 
     if (email && password) {
         const prisma = new PrismaClient();
@@ -14,6 +15,6 @@ export default async function handler(req: any, res: any) {
             },
         });
 
-        res.status(200).json({email: email, password: password, user: user});
+        res.status(200).json({user: user});
     }
 }

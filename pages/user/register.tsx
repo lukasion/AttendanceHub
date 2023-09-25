@@ -3,7 +3,6 @@ import Link from "next/link";
 import { register } from "@/services/user";
 
 export default function Register() {
-
     const handleSubmit = async (event: any) => {
         event.preventDefault()
 
