@@ -24,15 +24,15 @@ const pages = [
     },
     {
         name: 'Załóż profil obiektu',
-        href: '/'
+        href: '/user/register/company'
     },
     {
         name: 'Zarejestruj się',
-        href: '/register'
+        href: '/user/register'
     },
     {
         name: 'Zaloguj się',
-        href: '/login'
+        href: '/user/login'
     }
 ];
 const coloredPages = ['Zarejestruj się', 'Zaloguj się']
@@ -93,7 +93,7 @@ const Navigation = (props:
     `;
 
     return (
-        <AppBar position="static" sx={{ minHeight: props.simple ? 0 : 300 }} elevation={0}>
+        <AppBar position="static" sx={{ minHeight: props.simple ? 70 : 300 }} elevation={0}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{

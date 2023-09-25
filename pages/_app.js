@@ -10,7 +10,7 @@ export const Metadata = {
 
 export default function MyApp({ Component, pageProps }) {
     const router = useRouter()
-    const navigationSimple = router.pathname == '/register' ? true : false
+    const navigationSimple = ['/'].includes(router.pathname) ? false : true
 
     return (
         <main>
