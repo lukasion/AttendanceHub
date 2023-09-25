@@ -1,14 +1,19 @@
 import {Box, Button, Checkbox, FormControlLabel, Grid, TextField, Typography} from "@mui/material";
 import Link from "next/link";
+import { fetchData } from "@/services/user";
 
 export default function Register() {
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get("email"),
-            password: data.get("password"),
-        });
+
+        console.log(fetchData())
+
+        // console.log({
+        //     email: data.get("email"),
+        //     password: data.get("password"),
+        // });
     };
 
     return (
