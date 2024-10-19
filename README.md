@@ -1,34 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Signifer - Sports Facility Management System
 
-## Getting Started
+The Signifer app is a web-based system for managing sports facilities. It allows you to manage passes, contracts, and tickets, create schedules for group classes, offer individual classes and personal training, track attendance, and more.
 
-First, run the development server:
+## Features (WIP):
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- **Sale of Passes / Contracts / Tickets**: Manage and sell various types of passes, contracts, and tickets.
+- **Schedule of Group Classes**: Create and manage schedules for group classes.
+- **Individual Classes and Personal Training**: Offer and manage individual classes and personal training sessions.
+- **Class Registration**: Allow clients to register for classes.
+- **Class Notifications**: Send notifications to clients about their classes.
+- **Attendance Module**: Track attendance for classes.
+- **Basic Reports**: Generate reports on sales, activity of passes, income, arrears in payments, entry report, attendance at classes, and more.
+- **Warehouse Management**: Manage inventory and warehouse operations.
+- **Customer Messaging**: Send messages to customers.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Backend**: Laravel
+- **Frontend**: Vue 3
+- **Database**: MySQL
+- **Package Management**: Composer (PHP), npm (JavaScript)
+- **Others**: Docker, Quasar Framework, Tailwind CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- PHP
+- Composer
+- Node.js and npm
+- MySQL
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Steps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Clone the repository**:
+    ```sh
+    git clone <repository-url>
+    cd Signifer
+    ```
 
-## Deploy on Vercel
+2. **Install PHP dependencies**:
+    ```sh
+    composer install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Install JavaScript dependencies**:
+    ```sh
+    npm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. **Set up environment variables**:
+    - Copy the `.env.example` file to `.env`:
+        ```sh
+        cp .env.example .env
+        ```
+    - Update the `.env` file with your database and other configurations.
+
+5. **Generate application key**:
+    ```sh
+    php artisan key:generate
+    ```
+
+6. **Run database migrations**:
+    ```sh
+    php artisan migrate
+    ```
+
+7. **Build the frontend assets**:
+    ```sh
+    npm run dev
+    ```
+
+8. **Start the development server**:
+    ```sh
+    php artisan serve
+    ```
+
+## Usage
+
+- Access the application at `http://localhost:8000`.
+- Register and log in as a user to start managing classes and reservations.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
