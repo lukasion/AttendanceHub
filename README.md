@@ -1,18 +1,15 @@
-# Signifer - Sports Facility Management System
+# AttendenceHub - Track Attendences of workers
 
-The Signifer app is a web-based system for managing sports facilities. It allows you to manage passes, contracts, and tickets, create schedules for group classes, offer individual classes and personal training, track attendance, and more.
+The AttendenceHub app is a web-based system for tracking the attendences of workers. It allows you to manage attendences, plan and schedule your workflow in current week / month. Plan holiday, create reports of it.
 
 ## Features (WIP):
-
-- **Sale of Passes / Contracts / Tickets**: Manage and sell various types of passes, contracts, and tickets.
-- **Schedule of Group Classes**: Create and manage schedules for group classes.
-- **Individual Classes and Personal Training**: Offer and manage individual classes and personal training sessions.
-- **Class Registration**: Allow clients to register for classes.
-- **Class Notifications**: Send notifications to clients about their classes.
-- **Attendance Module**: Track attendance for classes.
-- **Basic Reports**: Generate reports on sales, activity of passes, income, arrears in payments, entry report, attendance at classes, and more.
-- **Warehouse Management**: Manage inventory and warehouse operations.
-- **Customer Messaging**: Send messages to customers.
+- **Real-Time Attendance Tracking** - Track employee attendance live with clock-in and clock-out functionality.
+- **Work Schedule Planning** - Create weekly/monthly work schedules for employees and teams. Customize shifts, set break times, and easily adjust for holidays. Automated notifications for upcoming shifts, shift changes, or missed check-ins.
+- **Leave & Vacation Management** - Request and approve leave directly in the app. View available vacation days, and manage sick leaves and personal time off. Customizable leave policies for different teams or departments. Track leave history and balance for each employee.
+- **Attendance & Leave Reports** - Generate daily, weekly, or monthly reports on attendance, absenteeism, and leave balance. Export reports to CSV or PDF formats for easy sharing with HR or management. Visual analytics (charts/graphs) to analyze attendance trends and improve workforce efficiency.
+- **Automated Alerts & Notifications** - Send automated reminders for late check-ins or missed shifts. Notifications for upcoming leave requests and pending approvals. Alert managers about unusual patterns like frequent absenteeism.
+- **Team Dashboard & Presence Overview** - A team overview dashboard to view who’s clocked in, on leave, or out sick in real-time. Easy access to current team availability for better workload distribution.
+- **Overtime & Hours Tracking** - Track overtime hours and automatically calculate extra pay. Visualize how many hours employees have worked in a given period. Manage compliance with labor laws regarding overtime.
 
 ## Technologies Used
 
@@ -36,7 +33,7 @@ The Signifer app is a web-based system for managing sports facilities. It allows
 1. **Clone the repository**:
     ```sh
     git clone <repository-url>
-    cd Signifer
+    cd AttendenceHub
     ```
 
 2. **Install PHP dependencies**:
