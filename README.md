@@ -1,15 +1,18 @@
-# AttendenceHub - Track Attendences of workers
+# Recruitly - Recruitment Management System (ATS)
 
-The AttendenceHub app is a web-based system for tracking the attendences of workers. It allows you to manage attendences, plan and schedule your workflow in current week / month. Plan holiday, create reports of it.
+The Recruitly app is a web-based system for managing the recruitment process. It allows recruiters to manage job
+postings, applications, and candidates. The system also provides tools for scheduling interviews, sending emails, and
+generating reports.
 
 ## Features (WIP):
-- **Real-Time Attendance Tracking** - Track employee attendance live with clock-in and clock-out functionality.
-- **Work Schedule Planning** - Create weekly/monthly work schedules for employees and teams. Customize shifts, set break times, and easily adjust for holidays. Automated notifications for upcoming shifts, shift changes, or missed check-ins.
-- **Leave & Vacation Management** - Request and approve leave directly in the app. View available vacation days, and manage sick leaves and personal time off. Customizable leave policies for different teams or departments. Track leave history and balance for each employee.
-- **Attendance & Leave Reports** - Generate daily, weekly, or monthly reports on attendance, absenteeism, and leave balance. Export reports to CSV or PDF formats for easy sharing with HR or management. Visual analytics (charts/graphs) to analyze attendance trends and improve workforce efficiency.
-- **Automated Alerts & Notifications** - Send automated reminders for late check-ins or missed shifts. Notifications for upcoming leave requests and pending approvals. Alert managers about unusual patterns like frequent absenteeism.
-- **Team Dashboard & Presence Overview** - A team overview dashboard to view who’s clocked in, on leave, or out sick in real-time. Easy access to current team availability for better workload distribution.
-- **Overtime & Hours Tracking** - Track overtime hours and automatically calculate extra pay. Visualize how many hours employees have worked in a given period. Manage compliance with labor laws regarding overtime.
+
+- **Job Postings**: Create and manage job postings.
+- **Applications**: Track applications and manage candidates.
+- **Interviews**: Schedule interviews and manage interviewers.
+- **Emails**: Send emails to candidates and interviewers.
+- **Reports**: Generate reports on job postings, applications, and interviews.
+- **Settings**: Configure system settings and manage user accounts.
+- **Notifications**: Receive notifications for new applications and interviews.
 
 ## Technologies Used
 

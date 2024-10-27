@@ -9,7 +9,7 @@ import {ref} from 'vue'
 				<img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-black.svg">
 			</q-avatar>
 
-			<q-toolbar-title class="text-black">AttendanceHub</q-toolbar-title>
+			<q-toolbar-title class="text-black">Recruitly</q-toolbar-title>
 
 			<q-btn flat round dense icon="whatshot"/>
 		</q-toolbar>
