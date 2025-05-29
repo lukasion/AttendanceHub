@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
-import { quasar} from '@quasar/vite-plugin'
+import {quasar} from '@quasar/vite-plugin'
+
 export default defineConfig({
     plugins: [
         laravel({
@@ -23,6 +24,7 @@ export default defineConfig({
     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
+            '@': '/resources/js',
         },
     },
 });
